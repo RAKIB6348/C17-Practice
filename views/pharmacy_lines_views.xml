@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Tree View for Hospital appointment -->
+    <record id="view_pharmacy_lines_tree" model="ir.ui.view">
+        <field name="name">pharmacy.lines.tree</field>
+        <field name="model">pharmacy.lines</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="appointment_id"/>
+                <field name="product"/>
+                <field name="qty"/>
+                <field name="price"/>
+                <field name="total_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Hospital appointment -->
+    <record id="view_pharmacy_lines_form" model="ir.ui.view">
+        <field name="name">pharmacy.lines.form</field>
+        <field name="model">pharmacy.lines</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="appointment_id"/>
+                        <field name="product"/>
+                        <field name="qty"/>
+                        <field name="price"/>
+                        <field name="total_price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_pharmacy_lines" model="ir.actions.act_window">
+        <field name="name">Pharmacy</field>
+        <field name="res_model">pharmacy.lines</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a New Pharmacy Product
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_pharmacy"
+              name="Pharmacy"
+              parent="menu_hospital_root"
+              action="action_pharmacy_lines"
+              sequence="3"/>
+
+
+</odoo>

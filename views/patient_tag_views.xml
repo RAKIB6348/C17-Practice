@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- Tree View for Hospital Patient -->
+    <record id="view_hospital_patient_tag_tree" model="ir.ui.view">
+        <field name="name">patient.tag.tree</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <tree string="Hospital Patients Tag" editable="bottom">
+                <field name="name"/>
+                <field name="sequence" widget="handle"/>
+                <field name="color" widget="color_picker"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for Hospital Patient -->
+    <record id="view_hospital_patient_tag_form" model="ir.ui.view">
+        <field name="name">patient.tag.form</field>
+        <field name="model">patient.tag</field>
+        <field name="arch" type="xml">
+            <form string="Hospital Patient Tag">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" placeholder="TAG NAME"/>
+                        </group>
+                        <group>
+                            <field name="color" widget="color_picker"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_hospital_patient_tag" model="ir.actions.act_window">
+        <field name="name">Tag</field>
+        <field name="res_model">patient.tag</field>
+        <field name="context">{}</field>
+        <field name="view_mode">tree</field>
+        <field name="domain">[]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a New Tag!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_patient_tag"
+              name="Tag"
+              parent="menu_configuration"
+              action="action_hospital_patient_tag"
+              sequence="0"/>
+
+</odoo>
